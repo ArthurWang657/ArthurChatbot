@@ -45,20 +45,16 @@ def GPT_response(text):
     # 接收回應
     prompt = text
     context.append({'role':'user', 'content':f"{prompt}"})
-    response = openai.Completion.create(
-        model="text-davinci-003", 
-        prompt=text, 
-        temperature=0.5, 
-        max_tokens=500)
-    answer = response['choices'][0]['text'].replace('\n','')
+    response = get_completion_from_messages(context) 
+    context.append({'role':'assistant', 'content':f"{response}"})
      
-    return answer
+    return response
 
 
 def get_completion_from_messages(messages):
     # 接收回應
     response = openai.chat.completions.create(
-        model = 'ft:davinci-002:tymphany::8fATMT3E',
+        model = 'gpt-3.5-turbo',
         messages=messages,
         temperature=1
     )
