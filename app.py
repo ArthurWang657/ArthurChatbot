@@ -45,10 +45,14 @@ def GPT_response(text):
     # 接收回應
     prompt = text
     context.append({'role':'user', 'content':f"{prompt}"})
-    response = get_completion_from_messages(context) 
-    context.append({'role':'assistant', 'content':f"{response}"})
+    response = openai.Completion.create(
+        model="gpt-3.5-turbo-0613", 
+        prompt=text, 
+        temperature=0.5, 
+        max_tokens=500)
+    answer = response['choices'][0]['text'].replace('。','')
      
-    return response
+    return answer
 
 
 def get_completion_from_messages(messages):
