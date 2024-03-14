@@ -46,11 +46,11 @@ def GPT_response(text):
     prompt = text
     context.append({'role':'user', 'content':f"{prompt}"})
     response = openai.Completion.create(
-        model="gpt-3.5-turbo-0613", 
+        model="text-davinci-003", 
         prompt=text, 
         temperature=0.5, 
         max_tokens=500)
-    answer = response['choices'][0]['text'].replace('。','')
+    answer = response['choices'][0]['text'].replace('\n','')
      
     return answer
 
