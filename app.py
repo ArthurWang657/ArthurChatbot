@@ -31,7 +31,8 @@ context = [ {'role':'system', 'content':"""
         回覆的資訊以下面的履歷來回答。
 
         履歷：
-        I had 3 and a half years of experience as a software engineer.
+        Hi I'm 王裕順.
+        I had 7 years of experience as a software engineer.
         Most of my current work is developing backends.
         I am good at using Java, ActionScript, Flex, and Spring and MVC architecture.
         In the first two years in current company, I participated to update a tool that programmer use to develop. 
